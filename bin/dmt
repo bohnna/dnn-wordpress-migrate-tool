@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+var argv = require('yargs')
+  .argv,
+  dmt = require('../lib/dmt');
+
+var task = argv._[0];
+
+if (task) {
+  switch (argv._[0]) {
+    case "tags":
+      dmt.tags(argv._[1], argv._[2]);
+    break;
+    case "join":
+      dmt.join(argv._[1], argv._[2], argv._[3], argv._[4]);
+    break;
+  }
+} else {
+  console.error("ERROR:", "Give me a task!");
+}
